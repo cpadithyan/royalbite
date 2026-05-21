@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Bite | Kizhekethala, Karuvarakundu - Mandhi & Biriyani Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0B0B',
+                        brandMedium: '#141414',
+                        brandYellow: '#FBBF24',
+                        brandYellowHover: '#F59E0B',
+                        brandWhite: '#FFFFFF',
+                        brandGray: '#A3A3A3'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FBBF24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B;
+        }
+
+        /* Custom Burger Cursor Styles */
+        .burger-cursor {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease-out, opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        /* Hide real cursor on screen devices that support hovers */
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+            a, button, select, input, [role="button"] {
+                cursor: none !important;
+            }
+            body.cursor-disabled {
+                cursor: auto;
+            }
+            body.cursor-disabled a, 
+            body.cursor-disabled button, 
+            body.cursor-disabled select, 
+            body.cursor-disabled input {
+                cursor: auto !important;
+            }
+        }
+
+        /* Keyframe Glows */
+        @keyframes pulse-yellow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .pulse-glow {
+            animation: pulse-yellow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-brandWhite font-sans min-h-screen relative overflow-x-hidden selection:bg-brandYellow selection:text-brandDark">
+
+    <!-- Custom Burger Cursor Follower -->
+    <div id="custom-cursor" class="burger-cursor hidden md:block">
+        <!-- SVG Burger Custom Pointer -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-full h-full filter drop-shadow-[0_4px_6px_rgba(251,191,36,0.5)]">
+            <!-- Top Bun (Yellow) -->
+            <path d="M6 30 C6 14, 58 14, 58 30 Z" fill="#FBBF24" />
+            <!-- Sesame seeds -->
+            <ellipse cx="18" cy="20" rx="1.5" ry="3" fill="#FFFFFF" transform="rotate(30, 18, 20)"/>
+            <ellipse cx="32" cy="18" rx="1.5" ry="3" fill="#FFFFFF" transform="rotate(-15, 32, 18)"/>
+            <ellipse cx="46" cy="22" rx="1.5" ry="3" fill="#FFFFFF" transform="rotate(20, 46, 22)"/>
+            <!-- Tomato slices (Red-Orange accent) -->
+            <rect x="8" y="30" width="14" height="4" rx="2" fill="#EF4444" />
+            <rect x="25" y="30" width="14" height="4" rx="2" fill="#EF4444" />
+            <rect x="42" y="30" width="14" height="4" rx="2" fill="#EF4444" />
+            <!-- Cheese Layer (Light Yellow) -->
+            <polygon points="6,34 58,34 50,40 32,36 14,40" fill="#F59E0B" />
+            <!-- Burger Meat Patty (Dark Brown) -->
+            <rect x="4" y="38" width="56" height="8" rx="4" fill="#4B3621" />
+            <!-- Lettuce (Green Accent) -->
+            <path d="M4 46 Q14 43, 24 46 T44 46 T56 46 Q60 49, 56 50 H8 Z" fill="#10B981" />
+            <!-- Bottom Bun (Yellow) -->
+            <path d="M8 50 C8 58, 56 58, 56 50 Z" fill="#FBBF24" />
+        </svg>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-brandDark/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-xl bg-brandYellow flex items-center justify-center shadow-lg shadow-brandYellow/10 transition-transform group-hover:scale-105 duration-300">
+                    <!-- Inline SVG Logo (Pot & Flame concept) -->
+                    <svg class="w-8 h-8 text-brandDark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v4M12 2a3 3 0 0 0-3 3v1h6V5a3 3 0 0 0-3-3z"/>
+                        <path d="M5 10h14a2 2 0 0 1 2 2v6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-6a2 2 0 0 1 2-2z"/>
+                        <line x1="9" y1="14" x2="9" y2="18"/>
+                        <line x1="15" y1="14" x2="15" y2="18"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight text-white group-hover:text-brandYellow transition-colors duration-300">ROYAL <span class="text-brandYellow">BITE</span></h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-brandGray">Kizhekethala</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#home" class="hover:text-brandYellow transition-colors duration-200">Home</a>
+                <a href="#specials" class="hover:text-brandYellow transition-colors duration-200">Specials</a>
+                <a href="#menu" class="hover:text-brandYellow transition-colors duration-200">Full Menu</a>
+                <a href="#about" class="hover:text-brandYellow transition-colors duration-200">Our Story</a>
+                <a href="#contact" class="hover:text-brandYellow transition-colors duration-200">Location</a>
+            </nav>
+
+            <!-- Utility Toggles & CTAs -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Cursor Toggle Button (For user convenience) -->
+                <button onclick="toggleCursor()" class="text-xs bg-brandMedium hover:bg-white/10 text-brandGray hover:text-white px-3 py-1.5 rounded-full border border-white/10 transition-colors flex items-center space-x-1.5" title="Toggle custom burger cursor">
+                    <i class="fa-solid fa-mouse-pointer text-brandYellow"></i>
+                    <span id="cursor-toggle-text">Classic Cursor</span>
+                </button>
+                <a href="#contact" class="bg-brandYellow hover:bg-brandYellowHover text-brandDark font-bold px-5 py-2.5 rounded-xl transition-all duration-300 shadow-md shadow-brandYellow/10 hover:shadow-brandYellow/20 transform hover:-translate-y-0.5 text-sm">
+                    Contact to Order
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center space-x-3">
+                <button onclick="toggleCursor()" class="text-xs bg-brandMedium text-brandGray p-2 rounded-full border border-white/10" title="Toggle Cursor">
+                    <i class="fa-solid fa-mouse-pointer text-brandYellow"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-brandWhite p-2 focus:outline-none" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandDark border-t border-white/10 px-4 py-6 space-y-4 shadow-2xl transition-all">
+            <a href="#home" class="block text-lg font-medium hover:text-brandYellow px-2">Home</a>
+            <a href="#specials" class="block text-lg font-medium hover:text-brandYellow px-2">Specials</a>
+            <a href="#menu" class="block text-lg font-medium hover:text-brandYellow px-2">Full Menu</a>
+            <a href="#about" class="block text-lg font-medium hover:text-brandYellow px-2">Our Story</a>
+            <a href="#contact" class="block text-lg font-medium hover:text-brandYellow px-2">Location</a>
+            <div class="pt-4 border-t border-white/10">
+                <a href="#contact" class="block text-center bg-brandYellow text-brandDark font-bold py-3 rounded-xl shadow-lg">
+                    <i class="fa-solid fa-phone mr-2"></i>Order Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-brandDark via-brandDark to-brandMedium overflow-hidden py-16">
+        <!-- Background light textures -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(251,191,36,0.08),transparent_50%)]"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brandDark to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Promo Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Location Tag -->
+                <div class="inline-flex items-center space-x-2 bg-brandYellow/10 border border-brandYellow/30 px-4 py-2 rounded-full text-brandYellow text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-location-dot animate-bounce"></i>
+                    <span>Kizhekethala, Karuvarakundu</span>
+                </div>
+                
+                <h2 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-brandWhite font-serif leading-tight">
+                    Where Flavor Meets <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandYellow to-amber-300">Royal Malabar</span> Heritage
+                </h2>
+                
+                <p class="text-brandGray text-base sm:text-lg max-w-2xl mx-auto lg:mx-0">
+                    Experience the ultimate authentic Kuzhimandhi, spiced Malabar Biriyani, and sizzling grills crafted meticulously in Karuvarakundu. Real ingredients, traditional wood fire, unforgettable tastes.
+                </p>
+
+                <!-- CTA Button Hub -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#menu" class="w-full sm:w-auto bg-brandYellow hover:bg-brandYellowHover text-brandDark font-bold px-8 py-4 rounded-xl shadow-xl shadow-brandYellow/20 hover:shadow-brandYellow/35 transition-all duration-300 text-center flex items-center justify-center space-x-2">
+                        <span>Explore Our Menu</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-brandYellow text-white hover:text-brandYellow font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 text-center flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Contact & Directions</span>
+                    </a>
+                </div>
+
+                <!-- Small Trust Badges -->
+                <div class="pt-8 border-t border-white/5 flex flex-wrap justify-center lg:justify-start gap-6 text-xs text-brandGray">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-brandYellow text-base"></i>
+                        <span>100% Halal & Fresh</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-fire text-brandYellow text-base"></i>
+                        <span>Charcoal Smoky Taste</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-truck-fast text-brandYellow text-base"></i>
+                        <span>Fast Hot Takeaway</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Showcase -->
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <!-- Visual Glowing Backplate -->
+                <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brandYellow/5 filter blur-3xl rounded-full"></div>
+                
+                <!-- Main Featured Food Plate Circle with Rotation Animation -->
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full p-2 border-2 border-dashed border-brandYellow/40 flex items-center justify-center">
+                    <img 
+                        src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=600&q=80" 
+                        alt="Royal Special Kuzhimandhi & Biriyani Combo" 
+                        class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-brandMedium transition-transform duration-700 hover:rotate-45"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/141414/FBBF24?text=Royal+Bite+Mandhi';"
+                    />
+                    
+                    <!-- Pulsing Badge -->
+                    <div class="absolute -top-4 -right-4 bg-brandYellow text-brandDark font-black text-xs sm:text-sm px-4 py-3 rounded-2xl shadow-lg rotate-12 flex flex-col items-center">
+                        <span class="text-[10px] tracking-wider uppercase opacity-80">Highly Recommended</span>
+                        <span>BEST MANDHI</span>
+                    </div>
+
+                    <!-- Small float items -->
+                    <div class="absolute bottom-4 left-0 bg-brandDark/90 border border-white/10 px-3 py-2 rounded-xl text-xs flex items-center space-x-2 shadow-xl">
+                        <span class="text-brandYellow">★ 4.9</span>
+                        <span class="text-brandGray">Karuvarakundu Reviews</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Special Showcases Section -->
+    <section id="specials" class="py-24 bg-brandDark border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brandYellow text-sm font-bold tracking-widest uppercase">The Masters of Spice</span>
+                <h3 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif">Kizhekethala's Signature Plates</h3>
+                <div class="h-1 w-20 bg-brandYellow mx-auto rounded-full"></div>
+                <p class="text-brandGray text-sm sm:text-base">
+                    Explore our two absolute crowns, prepared with authentic premium basmati rice, direct imported Arabic spices, and fire-wood roasting.
+                </p>
+            </div>
+
+            <!-- Double Feature Row (Mandhi & Biriyani) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Card 1: Mandhi -->
+                <div class="group bg-brandMedium border border-white/5 rounded-3xl overflow-hidden shadow-xl transition-all duration-300 hover:border-brandYellow/30 hover:shadow-brandYellow/5 flex flex-col justify-between">
+                    <div class="relative h-64 sm:h-80 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80" 
+                            alt="Royal Smoked Mandhi" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x600/141414/FBBF24?text=Arabic+Kuzhimandhi';"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandMedium via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brandYellow text-brandDark font-bold text-xs uppercase px-3 py-1.5 rounded-lg">
+                            Traditional Wood-fired
+                        </span>
+                    </div>
+                    <div class="p-6 sm:p-8 space-y-4 flex-grow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-2xl font-bold group-hover:text-brandYellow transition-colors duration-200">Arabic Kuzhi Mandhi</h4>
+                            <span class="text-brandYellow font-extrabold text-xl">₹170 <span class="text-xs text-brandGray font-normal">/ Quarter</span></span>
+                        </div>
+                        <p class="text-brandGray text-sm">
+                            Succulent meat, highly fragrant rice smoked perfectly under the earth. Served alongside our traditional tangy tomato chutney and home-whipped garlic mayonnaise sauce.
+                        </p>
+                        
+                        <!-- Mini details -->
+                        <div class="flex items-center space-x-6 text-xs text-brandGray py-2 border-t border-b border-white/5">
+                            <span class="flex items-center"><i class="fa-solid fa-drumstick-bite mr-2 text-brandYellow"></i>Al Faham / Chicken / Beef</span>
+                            <span class="flex items-center"><i class="fa-solid fa-users mr-2 text-brandYellow"></i>Serves 1 to 4</span>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 pt-0">
+                        <button onclick="openBookingModal('Arabic Kuzhi Mandhi')" class="w-full bg-white/5 hover:bg-brandYellow text-white hover:text-brandDark font-bold py-3.5 rounded-xl transition-all duration-300 text-sm flex items-center justify-center space-x-2">
+                            <span>Book / Order Now</span>
+                            <i class="fa-solid fa-basket-shopping text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Biriyani -->
+                <div class="group bg-brandMedium border border-white/5 rounded-3xl overflow-hidden shadow-xl transition-all duration-300 hover:border-brandYellow/30 hover:shadow-brandYellow/5 flex flex-col justify-between">
+                    <div class="relative h-64 sm:h-80 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" 
+                            alt="Royal Malabar Biriyani" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x600/141414/FBBF24?text=Malabar+Chicken+Biriyani';"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandMedium via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brandYellow text-brandDark font-bold text-xs uppercase px-3 py-1.5 rounded-lg">
+                            Malabar Special Dum
+                        </span>
+                    </div>
+                    <div class="p-6 sm:p-8 space-y-4 flex-grow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="text-2xl font-bold group-hover:text-brandYellow transition-colors duration-200">Royal Malabar Biriyani</h4>
+                            <span class="text-brandYellow font-extrabold text-xl">₹150 <span class="text-xs text-brandGray font-normal">/ Full</span></span>
+                        </div>
+                        <p class="text-brandGray text-sm">
+                            Crafted with delicate Khyma Rice, infused with premium desi ghee, crispy golden-fried onions, rich cashews, and slow-cooked meat that slips right off the bone.
+                        </p>
+                        
+                        <!-- Mini details -->
+                        <div class="flex items-center space-x-6 text-xs text-brandGray py-2 border-t border-b border-white/5">
+                            <span class="flex items-center"><i class="fa-solid fa-egg mr-2 text-brandYellow"></i>Chicken / Beef / Mutton</span>
+                            <span class="flex items-center"><i class="fa-solid fa-pepper-hot mr-2 text-brandYellow"></i>Traditional Spicy Dum</span>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 pt-0">
+                        <button onclick="openBookingModal('Royal Malabar Biriyani')" class="w-full bg-white/5 hover:bg-brandYellow text-white hover:text-brandDark font-bold py-3.5 rounded-xl transition-all duration-300 text-sm flex items-center justify-center space-x-2">
+                            <span>Book / Order Now</span>
+                            <i class="fa-solid fa-basket-shopping text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section id="menu" class="py-24 bg-brandMedium relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-brandYellow text-sm font-bold uppercase tracking-widest">Our Dining Grid</span>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold font-serif">A Feast of Endless Options</h3>
+                    <p class="text-brandGray text-sm max-w-xl">
+                        Filter through our selections of Mandhi, Dum Biriyani, quick bites, and refreshing beverages freshly available.
+                    </p>
+                </div>
+                
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-2 bg-brandDark p-1.5 rounded-2xl border border-white/5 max-w-max mx-auto md:mx-0">
+                    <button onclick="filterMenu('all', this)" class="menu-tab-btn active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 bg-brandYellow text-brandDark">
+                        All Items
+                    </button>
+                    <button onclick="filterMenu('mandhi', this)" class="menu-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-brandGray hover:text-white">
+                        Mandhi Specials
+                    </button>
+                    <button onclick="filterMenu('biriyani', this)" class="menu-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-brandGray hover:text-white">
+                        Biriyani Delights
+                    </button>
+                    <button onclick="filterMenu('grills', this)" class="menu-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-brandGray hover:text-white">
+                        Grills & Fast
+                    </button>
+                    <button onclick="filterMenu('beverages', this)" class="menu-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 text-brandGray hover:text-white">
+                        Juices & Shakes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Food Grid -->
+            <div id="food-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 transition-all duration-500">
+                
+                <!-- Mandhi Item 1 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="mandhi">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=500&q=80" alt="Beef Mandhi" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Beef+Kuzhimandhi';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">MANDHI SPECIALS</span>
+                        <h5 class="text-lg font-bold">Royal Beef Kuzhimandhi</h5>
+                        <p class="text-xs text-brandGray">Slow-roasted premium beef with smoke-infused rice, fresh mint salad, and chutney.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹190</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.8</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Royal Beef Kuzhimandhi')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mandhi Item 2 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="mandhi">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=500&q=80" alt="Al Faham Mandhi" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Al+Faham+Mandhi';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">MANDHI SPECIALS</span>
+                        <h5 class="text-lg font-bold">Al Faham Charcoal Mandhi</h5>
+                        <p class="text-xs text-brandGray">Arabic spice-rubbed grilled chicken served on a generous bed of Mandhi Rice.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹180</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.9</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Al Faham Charcoal Mandhi')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Biriyani Item 1 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="biriyani">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=500&q=80" alt="Malabar Chicken Dum Biriyani" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Chicken+Biriyani';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">BIRIYANI DELIGHTS</span>
+                        <h5 class="text-lg font-bold">Malabar Chicken Dum Biriyani</h5>
+                        <p class="text-xs text-brandGray">True spice-infused Khyma rice layered with slow-simmered tender chicken masala.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹150</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.9</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Malabar Chicken Dum Biriyani')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Biriyani Item 2 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="biriyani">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=500&q=80" alt="Kizhekethala Beef Biriyani" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Beef+Biriyani';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">BIRIYANI DELIGHTS</span>
+                        <h5 class="text-lg font-bold">Kizhekethala Beef Dum Biriyani</h5>
+                        <p class="text-xs text-brandGray">Our crowd favorite! Juicy beef chunks marinated in a heavily spiced masala blend.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹160</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.8</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Kizhekethala Beef Dum Biriyani')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grills Item 1 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="grills">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Roll Shawarma" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Roll+Shawarma';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">GRILLS & FAST</span>
+                        <h5 class="text-lg font-bold">Kizhekethala Spicy Shawarma</h5>
+                        <p class="text-xs text-brandGray">Succulent shredded chicken mixed with special pepper mayonnaise, rolled in hot rumali.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹90</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.7</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Kizhekethala Spicy Shawarma')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grills Item 2 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="grills">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=500&q=80" alt="Porotta with Roasted Beef" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Porotta+and+Beef';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">GRILLS & FAST</span>
+                        <h5 class="text-lg font-bold">Malabar Porotta & Beef Roast Combo</h5>
+                        <p class="text-xs text-brandGray">3 Pieces of flaky, layered Kerala Porotta paired with dry-roasted spicy beef fry.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹140</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.9</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Malabar Porotta & Beef Roast Combo')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Beverage Item 1 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="beverages">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" alt="Royal Mango Shake" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Mango+Shake';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">JUICES & SHAKES</span>
+                        <h5 class="text-lg font-bold">Thick Mango Avocado Shake</h5>
+                        <p class="text-xs text-brandGray">Refreshing heavy cream blend of local premium mangoes topped with sweet cashews.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹80</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.6</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Thick Mango Avocado Shake')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Beverage Item 2 -->
+                <div class="food-card bg-brandDark rounded-2xl overflow-hidden border border-white/5 hover:border-brandYellow/20 transition-all duration-300 flex flex-col justify-between" data-category="beverages">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80" alt="Lime Mint cooler" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/500x300/141414/FBBF24?text=Lime+Mint';">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <span class="text-[10px] bg-brandYellow/10 text-brandYellow font-extrabold px-2 py-1 rounded">JUICES & SHAKES</span>
+                        <h5 class="text-lg font-bold">Kizhekethala Lime Mint Cooler</h5>
+                        <p class="text-xs text-brandGray">Ice cold squeezed fresh lime crushed with sweet mint, perfect to wash down heavy spice.</p>
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-brandYellow font-black text-lg">₹40</span>
+                            <span class="text-xs text-brandGray"><i class="fa-solid fa-star text-brandYellow mr-1"></i>4.8</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Kizhekethala Lime Mint Cooler')" class="w-full bg-brandMedium hover:bg-brandYellow hover:text-brandDark border border-white/5 hover:border-brandYellow text-white font-medium py-2 rounded-xl text-xs transition-colors duration-300">
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Story Section -->
+    <section id="about" class="py-24 bg-brandDark relative overflow-hidden">
+        <div class="absolute right-0 top-1/4 w-96 h-96 bg-brandYellow/5 rounded-full filter blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Graphic Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80" alt="Kitchen Prep" class="rounded-2xl w-full h-48 sm:h-64 object-cover border border-white/5 shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/141414/FBBF24?text=Our+Kitchen';">
+                        <div class="bg-brandYellow p-6 rounded-2xl text-brandDark space-y-2">
+                            <span class="text-3xl font-black block">10+</span>
+                            <span class="text-xs font-bold uppercase tracking-wider block">Secret Arabic Spice Blends Used</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="bg-brandMedium border border-white/5 p-6 rounded-2xl space-y-2">
+                            <span class="text-3xl font-black block text-brandYellow">100%</span>
+                            <span class="text-xs text-brandGray font-bold uppercase tracking-wider block">Fresh Firewood Smoked Daily</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Perfect Plate Serving" class="rounded-2xl w-full h-48 sm:h-64 object-cover border border-white/5 shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/141414/FBBF24?text=Smoked+Meat';">
+                    </div>
+                </div>
+
+                <!-- Story Text -->
+                <div class="space-y-6">
+                    <span class="text-brandYellow text-sm font-bold uppercase tracking-widest">About Royal Bite</span>
+                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif">Kizhekethala's Local Feast Landmark</h3>
+                    <p class="text-brandGray text-base">
+                        Rooted deeply in the food-loving heart of Karuvarakundu, Royal Bite was founded with a single mission: to serve premium, non-compromised Kuzhimandhi and Malabar Dum Biriyani. 
+                    </p>
+                    <p class="text-brandGray text-sm">
+                        Our secret is pure firewood pit-cooking, making sure every grain of rice absorbs the deep, rich smokiness and flavor that gas ovens simply cannot match. Every morning, our chefs painstakingly blend organic spices imported directly, combined with the freshest meat from local Karuvarakundu farms.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-center space-x-3 text-white">
+                            <div class="w-6 h-6 rounded-full bg-brandYellow/10 flex items-center justify-center text-brandYellow">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span>Pristine Hygiene & Open Kitchen Guidelines</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-white">
+                            <div class="w-6 h-6 rounded-full bg-brandYellow/10 flex items-center justify-center text-brandYellow">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span>Warm traditional Malabar Hospitality & Seating</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-white">
+                            <div class="w-6 h-6 rounded-full bg-brandYellow/10 flex items-center justify-center text-brandYellow">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span>Ample car and bike parking space in Kizhekethala</span>
+                        </li>
+                    </ul>
+
+                    <!-- Signature Signature -->
+                    <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+                        <div>
+                            <span class="block font-serif italic text-lg text-brandYellow">Chef's Heritage Guarantee</span>
+                            <span class="block text-xs text-brandGray uppercase tracking-wider">Royal Bite Karuvarakundu Culinary Team</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Banner Section -->
+    <section class="py-16 bg-brandMedium/50 border-t border-b border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h4 class="text-xs uppercase text-brandYellow tracking-widest font-extrabold">Foodie Reviews</h4>
+                <p class="text-xl font-bold">What Karuvarakundu Residents Say</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-brandDark p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex items-center space-x-1 text-brandYellow text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs sm:text-sm text-brandGray italic">"The Beef Kuzhimandhi at Royal Bite Kizhekethala is hands down the best you can find in the Karuvarakundu region. Extremely smoky and perfectly spiced!"</p>
+                    <div class="border-t border-white/5 pt-3">
+                        <span class="block text-xs font-bold text-white">Anoop Kizhekethala</span>
+                        <span class="text-[10px] text-brandGray block">Local Guide</span>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-brandDark p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex items-center space-x-1 text-brandYellow text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs sm:text-sm text-brandGray italic">"We frequently order their Malabar Chicken Biriyani for family gatherings. The delivery is hot and the taste is identical every single time."</p>
+                    <div class="border-t border-white/5 pt-3">
+                        <span class="block text-xs font-bold text-white">Fathima R.</span>
+                        <span class="text-[10px] text-brandGray block">Regular Customer</span>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-brandDark p-6 rounded-2xl border border-white/5 space-y-4">
+                    <div class="flex items-center space-x-1 text-brandYellow text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs sm:text-sm text-brandGray italic">"The Shakes and Grills are top-notch. Love their custom burger cursor on the website too! Very stylish design!"</p>
+                    <div class="border-t border-white/5 pt-3">
+                        <span class="block text-xs font-bold text-white">Shibil K.</span>
+                        <span class="text-[10px] text-brandGray block">Food Critic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-24 bg-brandMedium relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <!-- Info Side -->
+                <div class="lg:col-span-5 space-y-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-brandYellow text-sm font-bold uppercase tracking-widest">Visit & Dine</span>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold font-serif text-white">We're Waiting For You</h3>
+                        <p class="text-brandGray text-sm">
+                            Drop by our vibrant outlet in Kizhekethala, Karuvarakundu or easily place your bulk orders for events directly.
+                        </p>
+                    </div>
+
+                    <!-- Location details panel -->
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brandYellow/10 border border-brandYellow/20 flex items-center justify-center text-brandYellow shrink-0">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white">Our Address</h5>
+                                <p class="text-xs sm:text-sm text-brandGray">Royal Bite Restaurant, Kizhekethala, Karuvarakundu, Malappuram, Kerala, 676523</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brandYellow/10 border border-brandYellow/20 flex items-center justify-center text-brandYellow shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white">Direct Phone</h5>
+                                <a href="tel:+919876543210" class="text-xs sm:text-sm text-brandYellow hover:underline font-bold">+91 98765 43210</a>
+                                <p class="text-[10px] text-brandGray">Click to dial & order</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brandYellow/10 border border-brandYellow/20 flex items-center justify-center text-brandYellow shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white">Working Hours</h5>
+                                <p class="text-xs sm:text-sm text-brandGray">Everyday: 11:30 AM - 11:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Quick Actions -->
+                    <div class="pt-4 border-t border-white/5 flex gap-4">
+                        <a href="tel:+919876543210" class="flex-1 bg-brandYellow hover:bg-brandYellowHover text-brandDark font-bold py-3.5 rounded-xl transition-all text-sm text-center shadow-lg shadow-brandYellow/10">
+                            <i class="fa-solid fa-phone mr-2"></i>Call Now
+                        </a>
+                        <a href="https://maps.google.com" target="_blank" class="flex-1 bg-brandDark hover:bg-black text-white border border-white/10 hover:border-brandYellow/40 font-bold py-3.5 rounded-xl transition-all text-sm text-center">
+                            <i class="fa-solid fa-directions mr-2 text-brandYellow"></i>Open Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map Design Box (Highly styled interactive graphic coordinates map) -->
+                <div class="lg:col-span-7 bg-brandDark border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(251,191,36,0.03),transparent_40%)]"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-white text-lg">Interactive Spot Guide</h4>
+                            <span class="text-brandYellow text-xs font-bold uppercase tracking-wider bg-brandYellow/10 border border-brandYellow/20 px-3 py-1 rounded-full flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-2"></span>
+                                Live Location Pin
+                            </span>
+                        </div>
+                        <p class="text-xs text-brandGray">We are located conveniently at Kizhekethala Junction, Karuvarakundu, right on the highway front with easy direct access.</p>
+                    </div>
+
+                    <!-- Styled Custom Visual Map Mapbox Mockup with pulses -->
+                    <div class="my-6 relative h-64 sm:h-80 bg-brandMedium rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center">
+                        <!-- Abstract Map grid lines background -->
+                        <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                        <!-- Mock Map Roads -->
+                        <div class="absolute w-full h-4 bg-zinc-800 rotate-12 top-1/2 left-0"></div>
+                        <div class="absolute h-full w-4 bg-zinc-800 -rotate-45 left-1/3 top-0"></div>
+                        <div class="absolute w-full h-3 bg-zinc-700/60 top-1/4 left-0"></div>
+                        
+                        <!-- Pulse Target Pin for Kizhekethala -->
+                        <div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                            <!-- Ring animations -->
+                            <div class="absolute w-12 h-12 bg-brandYellow/30 rounded-full animate-ping"></div>
+                            <div class="absolute w-20 h-20 bg-brandYellow/15 rounded-full animate-pulse"></div>
+                            
+                            <!-- The Pin Icon -->
+                            <div class="relative w-10 h-10 bg-brandYellow text-brandDark rounded-full flex items-center justify-center shadow-2xl border-2 border-brandDark z-10">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            
+                            <!-- Flag Label -->
+                            <div class="bg-brandDark/90 border border-brandYellow px-3 py-1 rounded-lg text-[10px] text-white font-bold whitespace-nowrap mt-2 shadow-2xl">
+                                ROYAL BITE KIZHEKETHALA 👑
+                            </div>
+                        </div>
+
+                        <!-- Neighbor landmarks mock text overlay -->
+                        <span class="absolute top-1/3 right-1/4 text-[10px] text-zinc-600 font-bold uppercase tracking-widest">Karuvarakundu Town Center</span>
+                        <span class="absolute bottom-1/4 right-1/3 text-[10px] text-zinc-600 font-bold uppercase tracking-widest">Kizhekethala Junction</span>
+                    </div>
+
+                    <p class="text-[11px] text-brandGray text-center relative z-10">
+                        <i class="fa-solid fa-circle-info mr-1 text-brandYellow"></i> Dine-in, Home-delivery, and Takeaways available for nearby communities.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-brandDark text-brandGray py-12 border-t border-white/5 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Col 1 Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-brandYellow flex items-center justify-center text-brandDark font-extrabold text-xl">
+                            R
+                        </div>
+                        <span class="font-extrabold text-white text-lg tracking-wide">ROYAL <span class="text-brandYellow">BITE</span></span>
+                    </div>
+                    <p class="text-xs leading-relaxed">
+                        Kizhekethala's pride kitchen bringing real fire-pit smoked Kuzhimandhi, spiced Biriyani & delightful bites to your doorstep.
+                    </p>
+                </div>
+
+                <!-- Col 2 Menu Quicklinks -->
+                <div class="space-y-4">
+                    <h6 class="font-bold text-white text-sm uppercase tracking-wider">Taste Categories</h6>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#menu" onclick="filterMenu('mandhi')" class="hover:text-brandYellow transition-colors">Arabic Mandhi Plates</a></li>
+                        <li><a href="#menu" onclick="filterMenu('biriyani')" class="hover:text-brandYellow transition-colors">Traditional Dum Biriyanis</a></li>
+                        <li><a href="#menu" onclick="filterMenu('grills')" class="hover:text-brandYellow transition-colors">Juicy Charcoal Grills</a></li>
+                        <li><a href="#menu" onclick="filterMenu('beverages')" class="hover:text-brandYellow transition-colors">Thick Shakes & Lime Mint</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 Quick Links -->
+                <div class="space-y-4">
+                    <h6 class="font-bold text-white text-sm uppercase tracking-wider">Navigation</h6>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-brandYellow transition-colors">Back to Home</a></li>
+                        <li><a href="#specials" class="hover:text-brandYellow transition-colors">Our Special Features</a></li>
+                        <li><a href="#about" class="hover:text-brandYellow transition-colors">Our Heritage Story</a></li>
+                        <li><a href="#contact" class="hover:text-brandYellow transition-colors">Direct Contact & Maps</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 Safe & Trusted Info -->
+                <div class="space-y-4">
+                    <h6 class="font-bold text-white text-sm uppercase tracking-wider">Our Ethics</h6>
+                    <p class="text-xs leading-relaxed">
+                        We prepare all meals fresh daily. Zero chemical preservatives or artificial food colors are integrated into our biriyani or mandhi.
+                    </p>
+                    <div class="flex space-x-3 text-brandYellow text-lg pt-2">
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Line -->
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p>&copy; 2026 Royal Bite Restaurant, Kizhekethala, Karuvarakundu. All Rights Reserved.</p>
+                <p class="flex items-center gap-1">
+                    Made with <i class="fa-solid fa-heart text-brandYellow"></i> for local foodies of Karuvarakundu
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal Backdrop -->
+    <div id="booking-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-brandDark/85 backdrop-blur-sm transition-all duration-300">
+        <!-- Modal Card Wrapper -->
+        <div class="bg-brandMedium border border-white/10 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl transform scale-95 transition-all duration-300" id="modal-card">
+            
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-brandGray hover:text-white bg-white/5 p-2 rounded-full focus:outline-none">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Contents -->
+            <div id="modal-main-view" class="space-y-6">
+                <div class="space-y-2">
+                    <span class="text-xs uppercase font-extrabold text-brandYellow tracking-wider">Quick Order / Pre-book Booking</span>
+                    <h4 class="text-2xl font-bold text-white" id="modal-item-title">Custom Item Selection</h4>
+                    <p class="text-xs text-brandGray">Directly coordinate your order. We will reach you on phone instantly to confirm your fresh booking slot.</p>
+                </div>
+
+                <!-- Booking Form -->
+                <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-brandGray uppercase tracking-wider mb-2">Selected Item</label>
+                        <input type="text" id="form-item-name" readonly class="w-full bg-brandDark border border-white/15 rounded-xl px-4 py-3 text-sm text-brandYellow font-bold focus:outline-none focus:border-brandYellow" />
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-brandGray uppercase tracking-wider mb-2">Quantity</label>
+                            <select id="form-item-qty" class="w-full bg-brandDark border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandYellow">
+                                <option value="1 Portion">1 Portion / Qtr</option>
+                                <option value="2 Portions">2 Portions / Half</option>
+                                <option value="4 Portions">4 Portions / Full</option>
+                                <option value="Party Bulk Order">Party Order / Bulk</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brandGray uppercase tracking-wider mb-2">Dine or Takeaway</label>
+                            <select id="form-type" class="w-full bg-brandDark border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandYellow">
+                                <option value="Takeaway Pick-up">Takeaway Pick-up</option>
+                                <option value="Reserve Table for Dine-In">Reserve Dine-In</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brandGray uppercase tracking-wider mb-2">Your Full Name</label>
+                        <input type="text" required placeholder="Enter name" id="form-customer-name" class="w-full bg-brandDark border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandYellow" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brandGray uppercase tracking-wider mb-2">Phone Number</label>
+                        <input type="tel" required placeholder="Enter 10 digit number" id="form-customer-phone" class="w-full bg-brandDark border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brandYellow" />
+                    </div>
+
+                    <button type="submit" class="w-full bg-brandYellow hover:bg-brandYellowHover text-brandDark font-extrabold py-4 rounded-xl shadow-lg transition-colors duration-300">
+                        Confirm Pre-Booking Placement
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success confirmation screen (Replaces old browser alert logic) -->
+            <div id="modal-success-view" class="hidden text-center py-8 space-y-6">
+                <div class="w-16 h-16 bg-brandYellow/10 text-brandYellow rounded-full flex items-center justify-center text-3xl mx-auto shadow-2xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-2xl font-bold text-white">Order Submitted Successfully!</h4>
+                    <p class="text-xs text-brandGray max-w-xs mx-auto">
+                        Thank you, <span id="success-client-name" class="text-brandYellow font-bold">Client</span>! Your order for <span id="success-item-name" class="text-white font-bold">Food</span> has been received. Our Kizhekethala team will phone you at <span id="success-client-phone" class="text-brandYellow font-bold">phone</span> in 2-5 minutes to verify pickup/dine details.
+                    </p>
+                </div>
+                <button onclick="closeBookingModal()" class="bg-brandYellow hover:bg-brandYellowHover text-brandDark font-bold px-6 py-2.5 rounded-xl text-xs transition-colors">
+                    Back to Dining Grid
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Custom JS Logic -->
+    <script>
+        // Custom Burger Cursor follow lag effect variables
+        const cursor = document.getElementById('custom-cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let isCursorActive = true;
+
+        // Custom Cursor Tracker
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Set cursor initial state visible
+        document.addEventListener('mouseenter', () => {
+            if (isCursorActive) cursor.style.opacity = '1';
+        });
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+
+        // Loop dynamic update for lerped animation (smooth spring follow effect)
+        function updateCursor() {
+            if (isCursorActive) {
+                // Lerping logic: moves 15% closer to targeted position on every frame request
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                
+                cursor.style.left = `${cursorX}px`;
+                cursor.style.top = `${cursorY}px`;
+            }
+            requestAnimationFrame(updateCursor);
+        }
+        // Start tracking cursor frames
+        updateCursor();
+
+        // Hover expansions for clickable links and buttons
+        const clickables = document.querySelectorAll('a, button, select, input, [role="button"]');
+        clickables.forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                if (isCursorActive) {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.6) rotate(15deg)';
+                }
+            });
+            elem.addEventListener('mouseleave', () => {
+                if (isCursorActive) {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+                }
+            });
+        });
+
+        // Function to toggle custom burger cursor for users who prefer classic pointers
+        function toggleCursor() {
+            const body = document.body;
+            const btnText = document.getElementById('cursor-toggle-text');
+            
+            if (isCursorActive) {
+                isCursorActive = false;
+                cursor.style.opacity = '0';
+                body.classList.add('cursor-disabled');
+                if (btnText) btnText.textContent = "Burger Cursor";
+            } else {
+                isCursorActive = true;
+                cursor.style.opacity = '1';
+                body.classList.remove('cursor-disabled');
+                if (btnText) btnText.textContent = "Classic Cursor";
+            }
+        }
+
+        // Mobile Menu toggles
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile dropdown menu when choosing a section
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Filter Grid Logic
+        function filterMenu(category, triggerBtn) {
+            const cards = document.querySelectorAll('.food-card');
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+
+            // Set active button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brandYellow', 'text-brandDark');
+                btn.classList.add('text-brandGray', 'hover:text-white');
+            });
+
+            if (triggerBtn) {
+                triggerBtn.classList.add('bg-brandYellow', 'text-brandDark');
+                triggerBtn.classList.remove('text-brandGray', 'hover:text-white');
+            }
+
+            // Animate card items entry and filtering
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    card.classList.remove('hidden');
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 100);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Booking/Ordering Modal View controls
+        const modal = document.getElementById('booking-modal');
+        const modalCard = document.getElementById('modal-card');
+        const mainView = document.getElementById('modal-main-view');
+        const successView = document.getElementById('modal-success-view');
+
+        function openBookingModal(foodItemName) {
+            document.getElementById('modal-item-title').textContent = foodItemName;
+            document.getElementById('form-item-name').value = foodItemName;
+            
+            // Clean view values
+            document.getElementById('form-customer-name').value = '';
+            document.getElementById('form-customer-phone').value = '';
+            
+            // Render view initial state
+            mainView.classList.remove('hidden');
+            successView.classList.add('hidden');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeBookingModal() {
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 150);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const customerName = document.getElementById('form-customer-name').value;
+            const customerPhone = document.getElementById('form-customer-phone').value;
+            const selectedFood = document.getElementById('form-item-name').value;
+
+            // Load success detail elements
+            document.getElementById('success-client-name').textContent = customerName;
+            document.getElementById('success-client-phone').textContent = customerPhone;
+            document.getElementById('success-item-name').textContent = selectedFood;
+
+            // Transition main views gracefully
+            mainView.classList.add('hidden');
+            successView.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
